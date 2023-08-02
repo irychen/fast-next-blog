@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin dark-mode {
+    --background-color: #1c1c1c;
+    --font-color: #f9f9f9;
+
+    --header-bg-color: #191919;
+    --header-font-color: #f9f9f9;
+}
+
+@mixin light-mode {
+    --background-color: #f9f9f9;
+    --font-color: #1c1c1c;
+
+    --header-bg-color: #f9f9f9;
+    --header-font-color: #333;
+}
+
+:root {
+    @include light-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-mode;
+    }
+}
+
+.dark {
+    @include dark-mode;
+}
+
+.light {
+    @include light-mode;
+}
+
+body {
+    background-color: var(--background-color);
+    min-height: 100vh;
+    color: var(--font-color);
+}
